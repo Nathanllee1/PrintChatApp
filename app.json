@@ -1,0 +1,12 @@
+{
+  "name": "PrintChat",
+  "displayName": "PrintChat",
+  "expo": {
+    "name": "PrintChat",
+    "slug": "PrintChat",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
