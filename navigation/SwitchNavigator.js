@@ -5,6 +5,7 @@ import Signup from '../screens/Signup'
 import Profile from '../screens/Profile'
 import Home from '../screens/Home'
 
+
 const SwitchNavigator = createSwitchNavigator(
   {
     Login: {
@@ -16,7 +17,6 @@ const SwitchNavigator = createSwitchNavigator(
     Profile : {
       screen: Profile
     },
-
     Home : {
       screen: Home
     }

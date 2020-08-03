@@ -8,7 +8,6 @@ class Login extends React.Component {
   componentDidMount = () => {
     Firebase.auth().onAuthStateChanged(user => {
       if (user) {
-
         this.props.navigation.navigate("Home")
       }
     })
@@ -48,10 +47,10 @@ class Login extends React.Component {
               <TouchableOpacity style={styles.button} onPress={this.handleLogin}>
                 <Text style={styles.buttonText}>Login</Text>
              </TouchableOpacity>
-              <Button
-                  title="Don't have an account yet? Sign up"
-                  onPress={() => this.props.navigation.navigate('Signup')}
-                />
+             <Text style={styles.signupText}
+              onPress={() => this.props.navigation.navigate('Signup')}>
+                Signup
+              </Text>
           </View>
       )
   }
@@ -69,7 +68,7 @@ const styles = StyleSheet.create({
         margin: 10,
         padding: 15,
         fontSize: 16,
-        borderColor: '#d3d3d3',
+        borderColor: '#000000',
         borderBottomWidth: 1,
         textAlign: 'center'
     },
@@ -78,8 +77,8 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         paddingVertical: 5,
         alignItems: 'center',
-        backgroundColor: '#F6820D',
-        borderColor: '#F6820D',
+        backgroundColor: '#000000',
+        borderColor: '#000000',
         borderWidth: 1,
         borderRadius: 5,
         width: 200
@@ -91,6 +90,9 @@ const styles = StyleSheet.create({
     },
     buttonSignup: {
         fontSize: 12
+    },
+    signupText : {
+      color: '#000000'
     }
 })
 

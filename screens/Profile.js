@@ -1,25 +1,25 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import Firebase from '../config/Firebase'
 
 
-class Profile extends React.Component {
-    render() {
-        return (
-            <View style={styles.container}>
-                <Text>Profile Screen</Text>
-            </View>
-        )
-    }
-}
+function Profile(props) {
+  function Signout() {
+    Firebase.auth().signOut().then(function() {
+      props.navigation.navigate('Home')// Sign-out successful.
+    }).catch(function(error) {
+      // An error happened.
+      console.log(error)
+    });
+  }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center'
-    }
-})
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <TouchableOpacity onPress={Signout}>
+        <Text>Signout</Text>
+      </TouchableOpacity>
+    </View>
+  );
+}
 
 export default Profile

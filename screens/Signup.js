@@ -43,6 +43,10 @@ class Signup extends React.Component {
                 <TouchableOpacity style={styles.button} onPress={this.handleSignUp}>
                     <Text style={styles.buttonText}>Signup</Text>
                 </TouchableOpacity>
+                <Text style={styles.signupText}
+                 onPress={() => this.props.navigation.navigate('Login')}>
+                   Login
+                 </Text>
             </View>
         )
     }
@@ -69,8 +73,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         paddingVertical: 5,
         alignItems: 'center',
-        backgroundColor: '#FFA611',
-        borderColor: '#FFA611',
+        backgroundColor: '#000000',
         borderWidth: 1,
         borderRadius: 5,
         width: 200
