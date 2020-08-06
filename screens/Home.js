@@ -34,7 +34,6 @@ export default function Home() {
             } else if (route.name === 'Profile') {
               iconName = focused ? 'ios-person' : 'ios-person';
             }
-            console.log(iconName)
             // You can return any component that you like here!
             return <Ionicons name={iconName} size={size} color={color} />;
           },
