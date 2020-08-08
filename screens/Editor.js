@@ -1,36 +1,58 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Button, Alert, SafeAreaView, ScrollView, TouchableOpacity  } from 'react-native';
+import { StyleSheet, Text, Image, View, TextInput, Button, Alert, SafeAreaView, ScrollView, TouchableOpacity  } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import * as ImagePicker from 'expo-image-picker';
+import Constants from 'expo-constants';
+import * as Permissions from 'expo-permissions';
+ 
 
+export default class Editor extends React.Component {
+    state = {
+        image: null,
+    };
 
+    render() {
+        let { image } = this.state;
 
-export default function Editor({ navigation }) {
-  const [value, onChangeText] = React.useState('Insert Text Here');
+        return (
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                <Button title="Pick an image from camera roll" onPress={this._pickImage} />
+                {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
+            </View>
+        );
+    }
 
-  function onSubmit() {
-    navigation.navigate('Friends')
-  }
+    componentDidMount() {
+        this.getPermissionAsync();
+    }
 
-  return (
-    <View style={styles.container}>
-      <SafeAreaView style={{ height: "100%"}}>
-        <ScrollView>
-          <TextInput
-          style={{ marginTop: 20, marginBottom: 10}}
-          onChangeText={text => onChangeText(text)}
-          value={value}
-          multiline
-          />
-        </ ScrollView>
+    getPermissionAsync = async () => {
+        if (Constants.platform.ios) {
+            const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+            if (status !== 'granted') {
+                alert('Sorry, we need camera roll permissions to make this work!');
+            }
+        }
+    };
 
-        <TouchableOpacity style={styles.button} onPress={onSubmit}>
-          <Text style={styles.buttonText}>Send</Text>
-        </TouchableOpacity>
+    _pickImage = async () => {
+        try {
+            let result = await ImagePicker.launchImageLibraryAsync({
+                mediaTypes: ImagePicker.MediaTypeOptions.All,
+                allowsEditing: true,
+                aspect: [4, 3],
+                quality: 1,
+            });
+            if (!result.cancelled) {
+                this.setState({ image: result.uri });
+            }
 
-      </SafeAreaView>
-    </View>
-  );
+            console.log(result);
+        } catch (E) {
+            console.log(E);
+        }
+    };
 }
 
 const styles = StyleSheet.create({
@@ -55,3 +77,4 @@ const styles = StyleSheet.create({
     color: '#fff'
   }
 });
+
