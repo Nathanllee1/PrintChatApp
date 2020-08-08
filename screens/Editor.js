@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Button, Alert, SafeAreaView, ScrollView, TouchableOpacity  } from 'react-native';
+import { StyleSheet, Text, Image, View, TextInput, Button, Alert, SafeAreaView, ScrollView, TouchableOpacity  } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
