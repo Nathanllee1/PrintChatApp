@@ -5,6 +5,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
+import firebase from '../config/Firebase'
  
 
 export default class Editor extends React.Component {
@@ -18,6 +19,7 @@ export default class Editor extends React.Component {
         return (
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                 <Button title="Pick an image from camera roll" onPress={this._pickImage} />
+                <Button title="Upload image" onPress={this._uploadImage} />
                 {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
             </View>
         );
@@ -36,10 +38,17 @@ export default class Editor extends React.Component {
         }
     };
 
+    _uploadImage = async () => {
+        const response = await fetch(this.state.image);
+        const blob = await response.blob();
+        var ref = firebase.storage().ref().child("my-image");
+        return ref.put(blob);
+    }
+
     _pickImage = async () => {
         try {
             let result = await ImagePicker.launchImageLibraryAsync({
-                mediaTypes: ImagePicker.MediaTypeOptions.All,
+                mediaTypes: ImagePicker.MediaTypeOptions.Images,
                 allowsEditing: true,
                 aspect: [4, 3],
                 quality: 1,
