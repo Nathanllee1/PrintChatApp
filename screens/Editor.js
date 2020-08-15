@@ -41,8 +41,20 @@ export default class Editor extends React.Component {
     _uploadImage = async () => {
         const response = await fetch(this.state.image);
         const blob = await response.blob();
-        var ref = firebase.storage().ref().child("my-image");
-        return ref.put(blob);
+        const filename = this.state.image.substring(this.state.image.lastIndexOf('/') + 1);
+        console.log("filename: ", filename);
+        var ref = firebase.storage().ref().child(filename);
+        await ref.put(blob);
+        const url = await ref.getDownloadURL().catch((error) => { throw error });
+        const db = firebase.firestore();
+        const userRef = db.collection("Messages").add({
+            Data: url,
+            Printed: false,
+            Receiver: "dOd8rPhPQGPIO9uN2ZvyeLq5uuf1",
+            Sender: "dOd8rPhPQGPIO9uN2ZvyeLq5uuf1"
+        }); 
+        console.log("url: ", url);
+        return url
     }
 
     _pickImage = async () => {
