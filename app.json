@@ -9,6 +9,14 @@
       "**/*"
     ],
     "description": "",
-    "githubUrl": "https://github.com/Nathanllee1/PrintChatApp"
+    "githubUrl": "https://github.com/Nathanllee1/PrintChatApp",
+    "ios": {
+      "bundleIdentifier": "com.printChat.PrintChat",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.printChat.PrintChat",
+      "versionCode": 1
+    }
   }
 }

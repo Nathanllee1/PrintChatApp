@@ -5,8 +5,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
-import firebase from '../config/Firebase'
- 
+import firebase from '../config/Firebase';
+import 'firebase/firestore';
 
 export default class Editor extends React.Component {
     state = {
@@ -51,8 +51,9 @@ export default class Editor extends React.Component {
             Data: url,
             Printed: false,
             Receiver: "dOd8rPhPQGPIO9uN2ZvyeLq5uuf1",
-            Sender: "dOd8rPhPQGPIO9uN2ZvyeLq5uuf1"
-        }); 
+            Sender: "dOd8rPhPQGPIO9uN2ZvyeLq5uuf1",
+
+        });
         console.log("url: ", url);
         return url
     }
