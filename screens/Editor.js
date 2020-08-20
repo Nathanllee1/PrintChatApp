@@ -18,9 +18,9 @@ export default class Editor extends React.Component {
 
         return (
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <Button title="Pick an image from camera roll" onPress={this._pickImage} />
-                <Button title="Upload image" onPress={this._uploadImage} />
-                {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
+                <Button title="Pick an image from camera roll" onPress={this._pickImage}/>
+                {image && <Image source={{ uri: image }} style={{ width: 200, height: 300, marginTop: 15, marginBottom: 15}} />}
+                {image && <Button title="Upload image" onPress={this._uploadImage} />}
             </View>
         );
     }
@@ -33,7 +33,7 @@ export default class Editor extends React.Component {
         if (Constants.platform.ios) {
             const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
             if (status !== 'granted') {
-                alert('Sorry, we need camera roll permissions to make this work!');
+              alert('Sorry, we need camera roll permissions to make this work!');
             }
         }
     };
@@ -52,18 +52,19 @@ export default class Editor extends React.Component {
             Printed: false,
             Receiver: "dOd8rPhPQGPIO9uN2ZvyeLq5uuf1",
             Sender: "dOd8rPhPQGPIO9uN2ZvyeLq5uuf1",
-
         });
         console.log("url: ", url);
         return url
     }
-
+    /*
+    allowsEditing: true,
+    aspect: [4, 3],
+    */
     _pickImage = async () => {
         try {
             let result = await ImagePicker.launchImageLibraryAsync({
                 mediaTypes: ImagePicker.MediaTypeOptions.Images,
-                allowsEditing: true,
-                aspect: [4, 3],
+                allowsEditing: false,
                 quality: 1,
             });
             if (!result.cancelled) {
