@@ -8,6 +8,7 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "icon": "./assets/icon.png",
     "description": "",
     "githubUrl": "https://github.com/Nathanllee1/PrintChatApp",
     "ios": {
@@ -17,6 +18,12 @@
     "android": {
       "package": "com.printChat.PrintChat",
       "versionCode": 1
+    },
+    "splash" : {
+      "image": "./assets/icon.png",
+      "backgroundColor": "#FFFFFF",
+      "width": 224,
+      "height": 175
     }
   }
 }
