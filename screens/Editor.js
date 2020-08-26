@@ -28,7 +28,7 @@ export default class Editor extends React.Component {
 
         return (
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <Button title="Pick an image from camera roll" onPress={this._pickImage}/>
+                <Button title="Pick an image from camera roll" onPress={this._pickImage} style={styles.button}/>
                 {image && <Image source={{ uri: image }} style={{ width: 200, height: 300, marginTop: 15, marginBottom: 15}} />}
                 {image && <Button title="Upload image" onPress={this._uploadImage} />}
             </View>
