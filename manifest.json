@@ -1,0 +1,38 @@
+{
+  "background_color": "#FFFFFF",
+  "description": "",
+  "display": "standalone",
+  "lang": "en",
+  "name": "PrintChat",
+  "short_name": "PrintChat",
+  "start_url": "/?utm_source=web_app_manifest",
+  "related_applications": [
+    {
+      "platform": "itunes",
+      "id": "com.printChat.PrintChat"
+    },
+    {
+      "platform": "play",
+      "url": "http://play.google.com/store/apps/details?id=com.printChat.PrintChat",
+      "id": "com.printChat.PrintChat"
+    }
+  ],
+  "prefer_related_applications": true,
+  "icons": [
+    {
+      "src": "/Nathanllee1/PrintChatApp.git/pwa/chrome-icon/chrome-icon-144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/Nathanllee1/PrintChatApp.git/pwa/chrome-icon/chrome-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/Nathanllee1/PrintChatApp.git/pwa/chrome-icon/chrome-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
