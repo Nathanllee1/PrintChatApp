@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Nathanllee1/PrintChatApp.git/precache-manifest.ac332e34a1148739c0925c160824cc23.js"
+  "/PrintChatApp/precache-manifest.24468c63198424bb301fc15f7b9fe3c1.js"
 );
 
 workbox.skipWaiting();
@@ -29,7 +29,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/Nathanllee1/PrintChatApp.git/index.html", {
+workbox.routing.registerNavigationRoute("/PrintChatApp/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
