@@ -9,3 +9,8 @@ expo start
 ```
 
 #### Website Version: https://nathanllee1.github.io/PrintChatApp/
+
+
+![Printer](printer.jpg)
+![App](app.png)
+![Signin](signin.png)
